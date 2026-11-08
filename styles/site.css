@@ -1,0 +1,387 @@
+:root {
+  color-scheme: light;
+  --paper: #f3efe7;
+  --paper-deep: #e7f2ef;
+  --ink: #241f1b;
+  --muted: #5c564e;
+  --line: #ddd4c6;
+  --glass: #d7ebe6;
+  --glass-deep: #0f5c58;
+  --blue: #1a4d63;
+  --banner: #f4e6d4;
+  --banner-line: #e2d0b8;
+  --banner-ink: #3f3428;
+  --serif: "Iowan Old Style", Palatino, "Palatino Linotype", "Liberation Serif", Georgia, "WenQuanYi Micro Hei", serif;
+  --sans: "Avenir Next", "Segoe UI", "Liberation Sans", "WenQuanYi Micro Hei", "Noto Sans CJK KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(900px 420px at 100% -10%, rgba(215, 235, 230, 0.9), transparent 60%),
+    var(--paper);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 1.125rem;
+  line-height: 1.65;
+}
+
+::selection {
+  background: #c5e4de;
+  color: #1a2422;
+}
+
+:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 3px;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: var(--blue);
+  text-underline-offset: 0.18em;
+}
+
+a:hover {
+  color: var(--glass-deep);
+}
+
+.skip {
+  position: absolute;
+  left: 1rem;
+  top: 0.5rem;
+  transform: translateY(-150%);
+  background: var(--paper);
+  color: var(--ink);
+  padding: 0.4rem 0.7rem;
+  z-index: 2;
+}
+
+.skip:focus {
+  transform: none;
+}
+
+.wrap {
+  width: min(1080px, calc(100% - 2rem));
+  margin-inline: auto;
+}
+
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem 1.5rem;
+  padding: 1.15rem 0;
+  border-bottom: 1px solid var(--line);
+  flex-wrap: wrap;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  color: var(--ink);
+  text-decoration: none;
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+}
+
+.brand img {
+  width: 2.4rem;
+  height: 2.4rem;
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1.15rem;
+  font-family: var(--sans);
+  font-size: 0.92rem;
+}
+
+.nav a[aria-current="page"] {
+  color: var(--ink);
+  text-decoration-color: var(--glass-deep);
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: center;
+  padding: 2.75rem 0 3rem;
+}
+
+.kicker {
+  margin: 0 0 0.7rem;
+  font-family: var(--sans);
+  font-size: 0.74rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--glass-deep);
+}
+
+h1,
+h2,
+h3,
+p {
+  text-wrap: pretty;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2.6rem, 8vw, 5.15rem);
+  font-weight: 400;
+  line-height: 0.96;
+  letter-spacing: -0.03em;
+}
+
+.dek {
+  max-width: 38rem;
+  margin: 1.35rem 0 0;
+  font-size: 1.2rem;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+.emblem {
+  width: 11.5rem;
+}
+
+.emblem img {
+  width: 100%;
+  height: auto;
+}
+
+.band {
+  background: linear-gradient(180deg, var(--paper-deep) 0%, rgba(243, 239, 231, 0.2) 100%);
+  border-top: 1px solid #d5e4df;
+  border-bottom: 1px solid var(--line);
+}
+
+.band-inner {
+  padding: 3rem 0 3.25rem;
+}
+
+.feature-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 0.8rem 1.5rem;
+  margin-bottom: 0.4rem;
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
+  padding-bottom: 0.15rem;
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  color: var(--blue);
+}
+
+.status span {
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 50%;
+  background: var(--glass-deep);
+}
+
+h2 {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3.1rem);
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+
+.lede {
+  max-width: 40rem;
+  margin: 1rem 0 0;
+}
+
+.points {
+  list-style: none;
+  margin: 2rem 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+}
+
+.points li {
+  padding: 0.95rem 0;
+  border-top: 1px solid var(--line);
+}
+
+.points h3 {
+  margin: 0 0 0.15rem;
+  font-family: var(--sans);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.points p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+.note {
+  max-width: 40rem;
+  margin: 1.75rem 0 0;
+  padding-left: 0.95rem;
+  border-left: 2px solid var(--glass-deep);
+}
+
+.contact {
+  padding: 3rem 0 1rem;
+}
+
+.email {
+  display: inline-block;
+  margin: 0.35rem 0 0;
+  font-size: clamp(1.35rem, 3.4vw, 2.15rem);
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+
+.quiet {
+  margin: 0.7rem 0 0;
+  color: var(--muted);
+}
+
+.site-footer {
+  padding: 2.25rem 0 2.75rem;
+  border-top: 1px solid transparent;
+}
+
+.site-footer p {
+  margin: 0;
+  max-width: 40rem;
+}
+
+.fine {
+  margin-top: 0.7rem;
+  color: var(--muted);
+  font-family: var(--sans);
+  font-size: 0.92rem;
+}
+
+.prose {
+  padding: 2.5rem 0 3rem;
+}
+
+.prose-inner {
+  max-width: 40rem;
+}
+
+.draft-banner {
+  margin: 0 0 1.75rem;
+  padding: 0.95rem 1rem;
+  background: var(--banner);
+  border: 1px solid var(--banner-line);
+  color: var(--banner-ink);
+  font-size: 1.02rem;
+}
+
+.prose h1 {
+  font-size: clamp(2.3rem, 6vw, 3.6rem);
+  margin-bottom: 0.6rem;
+}
+
+.meta {
+  margin: 0 0 1.5rem;
+  color: var(--muted);
+  font-family: var(--sans);
+  font-size: 0.95rem;
+}
+
+.prose h2 {
+  margin-top: 2rem;
+  font-size: 1.55rem;
+  letter-spacing: -0.02em;
+}
+
+.prose p,
+.prose li {
+  font-size: 1.08rem;
+}
+
+.prose ul {
+  margin: 0.4rem 0 0;
+  padding-left: 1.15rem;
+}
+
+.prose li + li {
+  margin-top: 0.35rem;
+}
+
+code {
+  font-family: "Liberation Mono", "Segoe UI Mono", ui-monospace, monospace;
+  font-size: 0.92em;
+  overflow-wrap: anywhere;
+}
+
+@media (min-width: 720px) {
+  .wrap {
+    width: min(1080px, calc(100% - 4rem));
+  }
+
+  .hero {
+    grid-template-columns: minmax(0, 1.4fr) minmax(200px, 0.72fr);
+    gap: 4rem;
+    padding: 4.25rem 0 4.5rem;
+  }
+
+  .emblem {
+    width: min(100%, 18.5rem);
+    justify-self: end;
+  }
+
+  .points {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 2.75rem;
+  }
+
+  .points li:nth-child(2) {
+    border-top: 1px solid var(--line);
+  }
+
+  .band-inner {
+    padding: 3.75rem 0 4rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .site-header {
+    align-items: flex-start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
