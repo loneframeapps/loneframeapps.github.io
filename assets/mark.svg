@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" role="img" aria-label="Lone Frame Apps mark">
+  <rect x="5" y="7" width="34" height="44" stroke="#1a4d63" stroke-width="2.4"/>
+  <circle cx="42" cy="44" r="16.5" fill="#d5ebe6" stroke="#0f5c58" stroke-width="2.4"/>
+  <path d="M30 44.5c3.5-4.4 7-4.4 10.5 0s7 4.4 10.5 0" stroke="#1a4d63" stroke-width="2.1" stroke-linecap="round"/>
+</svg>

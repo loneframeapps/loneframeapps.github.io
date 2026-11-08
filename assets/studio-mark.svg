@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 320" fill="none" role="img" aria-labelledby="mark-title">
+  <title id="mark-title">A lone frame and a sea-glass bead</title>
+  <rect x="34" y="28" width="150" height="230" stroke="#1a4d63" stroke-width="2"/>
+  <circle cx="176" cy="214" r="72" fill="#d7ebe6" stroke="#0f5c58" stroke-width="2"/>
+  <path d="M128 214c14-18 28-18 42 0s28 18 42 0" stroke="#1a4d63" stroke-width="2" stroke-linecap="round"/>
+</svg>
