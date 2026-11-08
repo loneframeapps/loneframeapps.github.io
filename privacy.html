@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Wavebead privacy draft — Lone Frame Apps</title>
-  <meta name="description" content="Draft for review of the Wavebead privacy notes. Not a finalized policy and not a compliance claim.">
+  <title>Wavebead privacy policy — Lone Frame Apps</title>
+  <meta name="description" content="Privacy policy for Wavebead, a personal medication and injection log from Lone Frame Apps, and for this website.">
   <meta name="theme-color" content="#f3efe7">
   <link rel="icon" href="assets/mark.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles/site.css">
@@ -26,53 +26,67 @@
   <main id="content" class="wrap prose">
     <article class="prose-inner">
       <p class="kicker">Wavebead</p>
-      <h1>Privacy draft</h1>
-      <p class="meta">Draft for review · November 8, 2026 · no effective date</p>
-      <p class="meta">Android package <code>com.loneframeapps.wavebead</code></p>
-      <p class="draft-banner">This is not a finalized privacy policy and it is not a claim of verified compliance. The app was not re-checked for this page. Where behavior is described, that is the intended design and it is still open to correction.</p>
+      <h1>Privacy policy</h1>
+      <p class="meta">Effective date: November 8, 2026</p>
+      <p class="meta">Android package <code>com.loneframeapps.wavebead</code> · version code 19 · version name 1.0.0</p>
+      <p>This policy describes that Android release and this website. It is not a certificate of legal compliance. The description comes from the release package and its source. The app was not run on a phone for this review.</p>
 
       <h2>The app</h2>
-      <p>Wavebead is an unpublished Android app from Lone Frame Apps. It is a personal log for medications and injections. The intended app includes reminders, weight and check-ins, estimated levels, exports and backups, and an optional one-time Pro upgrade.</p>
-      <p>Estimated levels are calculations from what you enter. They are not measurements. Wavebead is not a medical device and does not provide medical advice.</p>
+      <p>Wavebead is a personal log for medications and injections. You can record doses, set reminders, and add weight, check-ins, and related notes. Estimated levels are calculations from a half-life and the doses you enter. They are not measurements, and they are not medical advice.</p>
+      <p>Wavebead is from Lone Frame Apps, operated by woodpark picture books (<span lang="ko">우드파크 픽쳐북스</span>).</p>
 
-      <h2>Information you enter</h2>
-      <p>The log can include medications, injections, notes, weight, check-ins, and settings. The intended design keeps that log on your device until you export it or turn on an optional backup. This draft does not promise what is removed if you uninstall the app or clear its data.</p>
+      <h2>What stays on the phone</h2>
+      <p>The log and settings are stored in the app on your device. They can include medication names, doses, dates, injection sites, notes, tags, weight, check-ins, workout notes, reminder settings, and preferences such as a PIN.</p>
+      <p>A home-screen widget can show medication names, dose, and timing from a copy the app keeps for the widget. Reminders can show on the phone’s notifications. Anyone who can see the screen or the notification shade can see that text.</p>
+      <p>There is no Wavebead account. The reviewed app does not send the log to a Lone Frame Apps server.</p>
 
-      <h2>Collected by the developer</h2>
-      <p>The intended design is that Lone Frame Apps does not offer a Wavebead account and does not receive the contents of your log. That is not an audit. This draft does not claim that the app never uses a network connection.</p>
-      <p>Google services, and files you choose to export, are separate from information the developer collects. They are described below.</p>
+      <h2>Weekly copies on the phone</h2>
+      <p>The app can save a backup on the phone about once a week, and you can turn that off or save one yourself. It keeps up to four of those files in the app’s private storage. They include the saved log and settings. They are not uploaded by that feature. Turning the weekly backup off stops new ones. It does not delete copies already saved.</p>
 
-      <h2>Exports you choose</h2>
-      <p>The intended design creates an export only when you ask for one, and you choose where that file goes. Formats are not listed here until they are checked.</p>
+      <h2>Files you export or share</h2>
+      <p>When you ask, the app can make:</p>
+      <ul>
+        <li>a CSV of shots, weight, check-ins, and workouts, including medication, dose, site, tags, and notes</li>
+        <li>a JSON backup of the app’s saved state</li>
+        <li>a PDF summary, or an image or video, when you use those share or save actions</li>
+      </ul>
+      <p>On Android, a full backup is written as a file and handed to the system share sheet. You choose the app that receives it, such as Files, Google Drive, or another app. Lone Frame Apps does not connect to Google Drive and does not operate that copy. The app you pick handles the file under its own terms. Google’s policy is at <a href="https://policies.google.com/privacy">Google Privacy Policy</a>.</p>
+      <p>Saving to the gallery or downloads places a file in a Wavebead folder in Pictures, Movies, or Downloads. That file stays there until you delete it.</p>
 
-      <h2>Optional Google Drive backup</h2>
-      <p>An optional backup to your own Google Drive is part of the intended design. If you use it, the file is stored in your Google account. Google’s terms and <a href="https://policies.google.com/privacy">Google Privacy Policy</a> cover that service. Lone Frame Apps does not operate Google Drive.</p>
-      <p>This draft does not say whether the developer can view a backup file, and it does not describe security controls.</p>
+      <h2>Android’s own backup</h2>
+      <p>This release allows Android backup, and it does not include rules that leave the log out of that backup. If backup is on for the device, Android or Google may copy app data separately from the export and weekly-backup controls above. Clearing the app or uninstalling it does not delete a backup already stored that way. A later install can restore it. Turn device backup off, or delete the existing device backup, if you do not want that copy kept. This behavior was not tried on a phone.</p>
 
-      <h2>Google Play purchases</h2>
-      <p>The optional Pro upgrade is intended as a one-time purchase through Google Play, once the app is listed. There is no store listing yet. Google processes the payment. This draft does not list which purchase records Google may share with the developer, and it does not claim that a purchase involves no data at all.</p>
+      <h2>Google Play</h2>
+      <p>Pro is an optional one-time purchase, product <code>wavebead_pro</code>, handled by Google Play. The app asks Play whether that product is owned on the Google account used by the device, and it can restore Pro from that answer. The medication log is not the purchase.</p>
+      <p>Google processes the payment. Play can also make purchase records available to the developer, such as the fact that this product was bought. This policy does not list every field Play Console can show, and it does not say the developer receives none of them. Card details stay with Google.</p>
+      <p>The app can open Play’s review prompt and can check Play for an update. Those features use Google Play. They are separate from the log. The packaged app does not declare the Android internet permission. Play’s own apps can still use a network when you buy, restore, review, or update. Checking whether a network is connected is not the same as sending your log.</p>
+
+      <h2>What the developer receives</h2>
+      <p>Lone Frame Apps does not run a Wavebead login and does not receive the contents of the log through the app. The reviewed direct components do not include an advertising or analytics product. The release does include the Play Billing library. That library brings Google transport components with it. This review did not capture network traffic, so it does not promise that no component can ever contact Google through Play.</p>
+      <p>If you email <a href="mailto:loneframeapps@gmail.com">loneframeapps@gmail.com</a>, that message goes to that mailbox, including whatever you choose to write. We use support emails to respond to your requests. We delete them within 12 months after your request is resolved, unless longer retention is necessary for legal obligations or disputes. You can request earlier deletion by contacting us.</p>
+
+      <h2>Permissions and the app lock</h2>
+      <p>The release asks Android for notifications, vibration, biometric or fingerprint unlock, notice after the phone restarts, and a wake lock used with reminders. Saving a file on Android 9 and earlier can ask for storage access. The app does not request camera, location, or contacts.</p>
+      <p>You can set a PIN. An optional biometric check is done by the phone. The app asks for a yes or no. The PIN and biometric check lock the app. They do not encrypt files you have already exported, and they do not control Android backup.</p>
+
+      <h2>Deletion</h2>
+      <p>You can delete individual entries in the app. The erase control removes the current log. It does not remove every private copy. Weekly backups, copies kept before an update, import, or restore, and the widget’s saved values can remain.</p>
+      <p>To clear the app’s private copies, open Android Settings, then Apps, Wavebead, and Storage, and clear the app’s storage. Remove the Wavebead home-screen widget. Delete CSV, JSON, PDF, image, and video files you already saved, including copies in Google Drive or other apps. If device backup is on, also turn it off or delete the existing device backup so Android does not restore the log later. Clearing the app does not delete Google Play purchase records.</p>
 
       <h2>This website</h2>
-      <p>These pages are a static draft. They have no account, form, analytics, or advertising, and they do not set their own cookies. This draft is not hosted. If the site is hosted later, the host may keep its own connection logs.</p>
-
-      <h2>Permissions, security, and deletion</h2>
-      <p>This draft does not list device permissions, security measures, or deletion steps. Those facts need a check against the app before they can be written as policy.</p>
-      <p>An earlier draft said the app does not use the internet, does not transfer data, and uses only vibration. This page does not repeat those claims. Optional Google Drive backup and Google Play purchases involve Google services, and the earlier wording was not re-checked.</p>
-
-      <h2>Children</h2>
-      <p>Wavebead is not directed at children. This draft makes no verified statement about age checks or about information from children.</p>
+      <p>This site is hosted on GitHub Pages. These pages have no account, form, analytics, or advertising, and they do not set their own cookies. GitHub may process connection information, such as an IP address, as the host. See the <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub General Privacy Statement</a>.</p>
 
       <h2>Changes</h2>
-      <p>A reviewed policy would replace this page and would show an effective date. No effective date is set. An earlier draft date of October 29, 2026 is not used.</p>
+      <p>If this policy changes, the new text will be posted on this page with a new effective date. This page does not state an age rating. The reviewed app materials do not set one.</p>
 
       <h2>Contact</h2>
-      <p>Questions about this draft: <a href="mailto:loneframeapps@gmail.com">loneframeapps@gmail.com</a>.</p>
+      <p>Questions about this policy: <a href="mailto:loneframeapps@gmail.com">loneframeapps@gmail.com</a>.</p>
       <p>Lone Frame Apps is operated by woodpark picture books (<span lang="ko">우드파크 픽쳐북스</span>).</p>
     </article>
   </main>
 
   <footer class="wrap site-footer">
-    <p class="fine"><a href="index.html">Lone Frame Apps</a> · unpublished draft for review.</p>
+    <p class="fine"><a href="index.html">Lone Frame Apps</a> · privacy policy.</p>
   </footer>
 </body>
 </html>
