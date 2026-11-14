@@ -1,0 +1,89 @@
+/* Subtle motion for the Lone Frame preview copy.
+   Inspired by DesignBookmark Motion (Parallax ticket, Roll links);
+   written ourselves. Off when the user prefers reduced motion. */
+
+/* --- Roll links (header nav) --- */
+
+.nav a .roll-text {
+  display: block;
+  height: 1.65em;
+  height: 1lh;
+  overflow: hidden;
+}
+
+.nav a .roll-track {
+  display: flex;
+  flex-direction: column;
+  transform: translateY(0);
+}
+
+.nav a .roll-face {
+  display: block;
+  line-height: 1.65;
+  line-height: 1lh;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .nav a .roll-track {
+    /* Fallback easing, then a mild spring that barely overshoots */
+    transition: transform 0.48s cubic-bezier(0.22, 1, 0.36, 1);
+    transition-timing-function: linear(
+      0,
+      0.218 11.4%,
+      0.624 29.1%,
+      0.826 38.7%,
+      0.937 47.6%,
+      0.997 56.6%,
+      1.016 63.5%,
+      1.008 78.4%,
+      1
+    );
+  }
+
+  .nav a:focus-visible .roll-track {
+    transform: translateY(-50%);
+  }
+
+  @media (hover: hover) {
+    .nav a:hover .roll-track {
+      transform: translateY(-50%);
+    }
+  }
+}
+
+/* --- Parallax tilt + sheen (hero phone) --- */
+
+.hero-visual {
+  perspective: 56rem;
+}
+
+.tilt-card {
+  /* Identity transform keeps the stacking context stable. */
+  transform: rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
+  transform-origin: center center;
+}
+
+.tilt-sheen {
+  position: absolute;
+  inset: 0.5rem;
+  border-radius: 1.3rem;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0;
+  background: radial-gradient(
+    circle at var(--sheen-x, 50%) var(--sheen-y, 30%),
+    rgba(255, 255, 255, 0.42) 0%,
+    rgba(255, 255, 255, 0.1) 28%,
+    rgba(255, 255, 255, 0) 58%
+  );
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .tilt-sheen {
+    transition: opacity 0.35s ease;
+  }
+
+  .tilt-card.is-lit .tilt-sheen {
+    opacity: 1;
+  }
+}
