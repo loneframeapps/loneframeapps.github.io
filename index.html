@@ -8,6 +8,7 @@
   <meta name="theme-color" content="#ffffff">
   <link rel="icon" href="assets/mark.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles/site.css">
+  <link rel="stylesheet" href="styles/motion.css">
 </head>
 <body>
   <a class="skip" href="#content">Skip to content</a>
@@ -18,10 +19,10 @@
         Lone Frame Apps
       </a>
       <nav class="nav" aria-label="Primary">
-        <a href="index.html" aria-current="page">Home</a>
-        <a href="wavebead.html">Wavebead</a>
-        <a href="index.html#contact">Contact</a>
-        <a href="privacy.html">Privacy</a>
+        <a href="index.html" aria-current="page"><span class="roll-text"><span class="roll-track"><span class="roll-face">Home</span><span class="roll-face" aria-hidden="true">Home</span></span></span></a>
+        <a href="wavebead.html"><span class="roll-text"><span class="roll-track"><span class="roll-face">Wavebead</span><span class="roll-face" aria-hidden="true">Wavebead</span></span></span></a>
+        <a href="index.html#contact"><span class="roll-text"><span class="roll-track"><span class="roll-face">Contact</span><span class="roll-face" aria-hidden="true">Contact</span></span></span></a>
+        <a href="privacy.html"><span class="roll-text"><span class="roll-track"><span class="roll-face">Privacy</span><span class="roll-face" aria-hidden="true">Privacy</span></span></span></a>
       </nav>
       <a class="play-badge play-badge-nav" href="https://play.google.com/store/apps/details?id=com.loneframeapps.wavebead">
         <img src="assets/google-play-badge.png" alt="Get it on Google Play" width="168" height="65">
@@ -43,12 +44,13 @@
         </div>
       </div>
       <div class="hero-visual">
-        <figure class="phone phone-demo">
+        <figure class="phone phone-demo tilt-card">
           <video class="demo-clip" autoplay muted loop playsinline poster="assets/hero/wavebead-poster.jpg" width="390" height="844">
             <source src="assets/hero/wavebead-demo.webm" type="video/webm">
             <source src="assets/hero/wavebead-demo.mp4" type="video/mp4">
           </video>
           <img class="demo-poster" src="assets/hero/wavebead-poster.jpg" width="390" height="844" alt="Wavebead home screen showing an estimated level chart, upcoming dose, and shortcuts to log a shot, how you feel, weight, and workouts.">
+          <span class="tilt-sheen" aria-hidden="true"></span>
         </figure>
       </div>
     </section>
@@ -158,5 +160,6 @@
     </div>
   </footer>
   <script src="scripts/site.js"></script>
+  <script src="scripts/motion.js"></script>
 </body>
 </html>
