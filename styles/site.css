@@ -1,3 +1,13 @@
+@font-face {
+  font-family: "Jost";
+  src: url("../assets/fonts/jost-variable.woff2") format("woff2") tech("variations"),
+       url("../assets/fonts/jost-variable.woff2") format("woff2-variations");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0100-024F, U+0259, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+1E00-1EFF, U+2000-206F, U+20A0-20CF, U+2122, U+2191, U+2193, U+2212, U+2215, U+2C60-2C7F, U+A720-A7FF, U+FEFF, U+FFFD;
+}
+
 :root {
   color-scheme: light;
   --paper: #ffffff;
@@ -19,8 +29,9 @@
   --space-7: 3rem;
   --space-8: 4rem;
   --space-9: 6rem;
-  --serif: "Iowan Old Style", Palatino, "Palatino Linotype", "Liberation Serif", Georgia, "Noto Serif CJK KR", serif;
-  --sans: "Avenir Next", "Segoe UI", "Liberation Sans", "Noto Sans CJK KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  --font: "Jost", "Noto Sans CJK KR", "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", sans-serif;
+  --serif: var(--font);
+  --sans: var(--font);
 }
 
 *,
@@ -37,9 +48,11 @@ body {
   margin: 0;
   background: var(--paper);
   color: var(--ink);
-  font-family: var(--serif);
+  font-family: var(--font);
   font-size: 1.0625rem;
+  font-weight: 400;
   line-height: 1.65;
+  font-synthesis: none;
 }
 
 ::selection {
@@ -214,7 +227,8 @@ a:hover {
   margin: 0 0 var(--space-3);
   font-family: var(--sans);
   font-size: 0.75rem;
-  letter-spacing: 0.14em;
+  font-weight: 500;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--sea-deep);
 }
@@ -228,10 +242,10 @@ p {
 
 h1 {
   margin: 0;
-  font-size: clamp(2.4rem, 7vw, 4.6rem);
-  font-weight: 400;
-  line-height: 1.02;
-  letter-spacing: -0.03em;
+  font-size: clamp(2.35rem, 6.5vw, 4.25rem);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
 }
 
 .hero .product-name {
@@ -240,10 +254,10 @@ h1 {
 
 .hero-line {
   margin: var(--space-4) 0 0;
-  font-size: clamp(1.7rem, 5vw, 2.85rem);
-  font-weight: 400;
+  font-size: clamp(1.7rem, 5vw, 2.75rem);
+  font-weight: 500;
   line-height: 1.15;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.02em;
   color: var(--ink);
 }
 
@@ -333,7 +347,7 @@ h1 {
   width: min(14rem, 70%);
 }
 
-/* --- Hero: two apps --- */
+/* --- Hero: two-app actions --- */
 
 .hero-actions-apps {
   flex-direction: column;
@@ -363,64 +377,6 @@ h1 {
   font-size: 0.92rem;
   line-height: 1.2;
   text-align: center;
-}
-
-.hero-visual {
-  container: hero-visual / inline-size;
-}
-
-.hero-phones {
-  --screen-h: clamp(15.5rem, 74cqi, 26rem);
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: safe flex-end;
-  justify-content: center;
-  gap: var(--space-3);
-  width: 100%;
-}
-
-.hero-phone {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 0;
-  min-width: 0;
-  flex: 0 0 auto;
-}
-
-.hero-visual .hero-phones .phone {
-  position: relative;
-  width: auto;
-  height: auto;
-  padding: 0.5rem;
-}
-
-.hero-phones picture {
-  display: block;
-  height: var(--screen-h);
-  width: calc(var(--screen-h) * 390 / 844);
-}
-
-.hero-phones .demo-clip,
-.hero-phones .demo-poster,
-.hero-phones .phone picture img {
-  width: calc(var(--screen-h) * 390 / 844);
-  max-width: none;
-  height: var(--screen-h);
-  aspect-ratio: 390 / 844;
-  object-fit: cover;
-  object-position: top center;
-}
-
-.hero-phone figcaption {
-  margin-top: var(--space-3);
-  max-width: 100%;
-  font-family: var(--sans);
-  font-size: 0.8125rem;
-  line-height: 1.3;
-  color: var(--muted);
-  text-align: center;
-  text-wrap: balance;
 }
 
 /* --- Sections --- */
@@ -480,10 +436,10 @@ h1 {
 
 h2 {
   margin: 0;
-  font-size: clamp(1.9rem, 4vw, 3rem);
-  font-weight: 400;
-  letter-spacing: -0.03em;
-  line-height: 1.08;
+  font-size: clamp(1.85rem, 4vw, 2.75rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.12;
 }
 
 .lede {
@@ -757,22 +713,13 @@ code {
   }
 
   .hero {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
     gap: var(--space-8);
     padding: var(--space-8) 0 var(--space-9);
   }
 
   .hero-visual {
     justify-items: end;
-  }
-
-  .hero-phones {
-    justify-content: flex-end;
-    gap: var(--space-4);
-  }
-
-  .hero-phones {
-    --screen-h: min(26rem, 78cqi);
   }
 
   .points {
@@ -869,12 +816,6 @@ code {
   .hero-actions-apps {
     gap: var(--space-3);
   }
-
-  .hero-phones {
-    justify-content: center;
-    gap: var(--space-2);
-    --screen-h: clamp(14.5rem, 68cqi, 20rem);
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -897,44 +838,63 @@ code {
 
 /* --- JP Bound Clinic Finder section (homepage) --- */
 
+#wavebead,
+#jpbound,
+#contact {
+  scroll-margin-top: 5.5rem;
+}
+
+@media (max-width: 959px) {
+  #wavebead,
+  #jpbound,
+  #contact {
+    scroll-margin-top: 11rem;
+  }
+}
+
+#jpbound.section {
+  padding: var(--space-6) 0;
+}
+
 .jpbound-inner {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  column-gap: var(--space-5);
-  row-gap: var(--space-4);
-  align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-5);
 }
 
 .jpbound-inner > .feature-head {
-  grid-column: 1 / -1;
+  width: 100%;
   margin-bottom: 0;
 }
 
 .jpbound-copy {
   min-width: 0;
+  width: 100%;
 }
 
 .jpbound-copy .lede {
-  max-width: 28rem;
+  max-width: 36rem;
 }
 
-.jpbound-visual .phone {
-  width: 10.5rem;
+.jpbound-copy .hero-actions {
+  margin-top: var(--space-4);
+}
+
+.jpbound-visual {
   margin: 0;
 }
 
-.jpbound-visual .phone picture {
-  display: block;
-  width: 100%;
-  aspect-ratio: 390 / 844;
+.jpbound-visual .phone {
+  width: min(15rem, 72vw);
+  margin: 0;
 }
 
+.jpbound-visual .phone picture,
 .jpbound-visual .phone img {
+  display: block;
   width: 100%;
-  height: 100%;
-  aspect-ratio: 390 / 844;
-  object-fit: cover;
-  object-position: top center;
+  height: auto;
 }
 
 @media (max-width: 719px) {
@@ -967,9 +927,8 @@ code {
 }
 
 @media (min-width: 720px) {
-  .jpbound-inner {
-    column-gap: var(--space-7);
-    row-gap: var(--space-5);
+  #jpbound.section {
+    padding: var(--space-7) 0;
   }
 
   .jpbound-visual .phone {
@@ -977,17 +936,21 @@ code {
   }
 }
 
-@media (max-width: 359px) {
+/* JP Bound Clinic Finder: phone on the right of the copy on wider screens */
+@media (min-width: 720px) {
   .jpbound-inner {
-    grid-template-columns: minmax(0, 1fr);
-    justify-items: center;
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+    column-gap: var(--space-6);
+    row-gap: var(--space-5);
+    align-items: center;
   }
-
-  .jpbound-copy {
-    width: 100%;
+  .jpbound-inner > .feature-head {
+    grid-column: 1 / -1;
   }
-
-  .jpbound-visual .phone {
-    width: min(12rem, 70vw);
+  .jpbound-copy { grid-column: 1; }
+  .jpbound-visual {
+    grid-column: 2;
+    justify-self: center;
   }
 }
