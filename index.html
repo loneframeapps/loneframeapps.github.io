@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Lone Frame Apps</title>
-  <meta name="description" content="Lone Frame Apps is a small studio. Wavebead is a gentle GLP-1 shot tracker for Android, available on Google Play.">
+  <meta name="description" content="Lone Frame Apps is a small studio for personal apps: Wavebead, a gentle GLP-1 shot tracker for Android, and JP Bound Clinic Finder, an info-only guide to Japan clinics for visitors.">
   <meta name="theme-color" content="#ffffff">
   <link rel="icon" href="assets/mark.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles/site.css">
@@ -13,7 +13,7 @@
 <body>
   <a class="skip" href="#content">Skip to content</a>
   <header class="site-header">
-    <div class="wrap header-bar">
+    <div class="wrap header-bar has-app-nav">
       <a class="brand" href="index.html">
         <img src="assets/mark.svg" alt="" width="36" height="36">
         Lone Frame Apps
@@ -21,6 +21,7 @@
       <nav class="nav" aria-label="Primary">
         <a href="index.html" aria-current="page"><span class="roll-text"><span class="roll-track"><span class="roll-face">Home</span><span class="roll-face" aria-hidden="true">Home</span></span></span></a>
         <a href="wavebead.html"><span class="roll-text"><span class="roll-track"><span class="roll-face">Wavebead</span><span class="roll-face" aria-hidden="true">Wavebead</span></span></span></a>
+        <a href="index.html#jpbound"><span class="roll-text"><span class="roll-track"><span class="roll-face">JP Bound Clinic Finder</span><span class="roll-face" aria-hidden="true">JP Bound Clinic Finder</span></span></span></a>
         <a href="index.html#contact"><span class="roll-text"><span class="roll-track"><span class="roll-face">Contact</span><span class="roll-face" aria-hidden="true">Contact</span></span></span></a>
         <a href="privacy.html"><span class="roll-text"><span class="roll-track"><span class="roll-face">Privacy</span><span class="roll-face" aria-hidden="true">Privacy</span></span></span></a>
       </nav>
@@ -35,23 +36,44 @@
       <div>
         <p class="kicker">Studio</p>
         <h1>Lone Frame Apps</h1>
-        <p class="dek">A small studio for personal apps. Wavebead, the first app, is a gentle GLP-1 shot tracker for Android.</p>
-        <div class="hero-actions">
-          <a class="play-badge" href="https://play.google.com/store/apps/details?id=com.loneframeapps.wavebead">
-            <img src="assets/google-play-badge.png" alt="Get it on Google Play" width="168" height="65">
-          </a>
-          <a class="text-link" href="wavebead.html">See Wavebead</a>
+        <p class="dek">A small studio for personal apps: Wavebead, a gentle GLP-1 shot tracker, and JP Bound Clinic Finder, an info-only guide to Japan clinics for visitors.</p>
+        <div class="hero-actions hero-actions-apps">
+          <div class="hero-cta">
+            <a class="play-badge" href="https://play.google.com/store/apps/details?id=com.loneframeapps.wavebead">
+              <img src="assets/google-play-badge.png" alt="Get it on Google Play" width="168" height="65">
+            </a>
+            <a class="text-link" href="wavebead.html">See Wavebead</a>
+          </div>
+          <div class="hero-cta">
+            <p class="coming-soon">Coming soon to Google Play</p>
+            <a class="text-link" href="#jpbound">See JP Bound Clinic Finder</a>
+          </div>
         </div>
       </div>
       <div class="hero-visual">
-        <figure class="phone phone-demo tilt-card">
-          <video class="demo-clip" autoplay muted loop playsinline poster="assets/hero/wavebead-poster.jpg" width="390" height="844">
-            <source src="assets/hero/wavebead-demo.webm" type="video/webm">
-            <source src="assets/hero/wavebead-demo.mp4" type="video/mp4">
-          </video>
-          <img class="demo-poster" src="assets/hero/wavebead-poster.jpg" width="390" height="844" alt="Wavebead home screen showing an estimated level chart, upcoming dose, and shortcuts to log a shot, how you feel, weight, and workouts.">
-          <span class="tilt-sheen" aria-hidden="true"></span>
-        </figure>
+        <div class="hero-phones">
+          <figure class="hero-phone">
+            <div class="phone phone-demo tilt-card">
+              <video class="demo-clip" autoplay muted loop playsinline poster="assets/hero/wavebead-poster.jpg" width="390" height="844">
+                <source src="assets/hero/wavebead-demo.webm" type="video/webm">
+                <source src="assets/hero/wavebead-demo.mp4" type="video/mp4">
+              </video>
+              <img class="demo-poster" src="assets/hero/wavebead-poster.jpg" width="390" height="844" alt="Wavebead home screen showing an estimated level chart, upcoming dose, and shortcuts to log a shot, how you feel, weight, and workouts.">
+              <span class="tilt-sheen" aria-hidden="true"></span>
+            </div>
+            <figcaption>Wavebead</figcaption>
+          </figure>
+          <figure class="hero-phone">
+            <div class="phone tilt-card">
+              <picture>
+                <source srcset="assets/hero/jpbound-home.webp" type="image/webp">
+                <img src="assets/hero/jpbound-home.png" width="720" height="1280" alt="JP Bound Clinic Finder home screen showing a clinic list for Japan, with open and closed hours and shortcuts to the map, favorites, and info." fetchpriority="high">
+              </picture>
+              <span class="tilt-sheen" aria-hidden="true"></span>
+            </div>
+            <figcaption>JP Bound Clinic Finder</figcaption>
+          </figure>
+        </div>
       </div>
     </section>
 
@@ -132,20 +154,30 @@
     </section>
 
     <section class="section" id="jpbound" aria-labelledby="jpbound-title">
-      <div class="wrap">
+      <div class="wrap jpbound-inner">
         <div class="feature-head">
           <p class="kicker">App</p>
           <p class="status">Coming soon to Google Play · Android</p>
         </div>
-        <div class="app-lockup">
-          <img src="assets/jpbound-icon.png" width="192" height="192" alt="">
-          <div>
-            <h2 id="jpbound-title">JP Bound Clinic Finder</h2>
+        <div class="jpbound-copy">
+          <div class="app-lockup">
+            <img src="assets/jpbound-icon.png" width="192" height="192" alt="">
+            <div>
+              <h2 id="jpbound-title">JP Bound Clinic Finder</h2>
+            </div>
+          </div>
+          <p class="lede">Find clinics in Japan that welcome visitors, with directions and hours.</p>
+          <div class="hero-actions">
+            <a class="text-link" href="jpbound-privacy.html">Privacy policy</a>
           </div>
         </div>
-        <p class="lede">Find clinics in Japan that welcome visitors, with directions and hours.</p>
-        <div class="hero-actions">
-          <a class="text-link" href="jpbound-privacy.html">Privacy policy</a>
+        <div class="jpbound-visual">
+          <figure class="phone">
+            <picture>
+              <source srcset="assets/hero/jpbound-home.webp" type="image/webp">
+              <img src="assets/hero/jpbound-home.png" width="720" height="1280" alt="JP Bound Clinic Finder home screen showing a clinic list for Japan, with open and closed hours and shortcuts to the map, favorites, and info." loading="lazy" decoding="async">
+            </picture>
+          </figure>
         </div>
       </div>
     </section>
