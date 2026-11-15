@@ -7,6 +7,7 @@
   <meta name="description" content="Lone Frame Apps is a small studio for personal apps: Wavebead, a gentle GLP-1 shot tracker for Android, and JP Bound Clinic Finder, an info-only guide to Japan clinics for visitors.">
   <meta name="theme-color" content="#ffffff">
   <link rel="icon" href="assets/mark.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/jost-variable.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="styles/site.css">
   <link rel="stylesheet" href="styles/motion.css">
 </head>
@@ -51,29 +52,14 @@
         </div>
       </div>
       <div class="hero-visual">
-        <div class="hero-phones">
-          <figure class="hero-phone">
-            <div class="phone phone-demo tilt-card">
-              <video class="demo-clip" autoplay muted loop playsinline poster="assets/hero/wavebead-poster.jpg" width="390" height="844">
-                <source src="assets/hero/wavebead-demo.webm" type="video/webm">
-                <source src="assets/hero/wavebead-demo.mp4" type="video/mp4">
-              </video>
-              <img class="demo-poster" src="assets/hero/wavebead-poster.jpg" width="390" height="844" alt="Wavebead home screen showing an estimated level chart, upcoming dose, and shortcuts to log a shot, how you feel, weight, and workouts.">
-              <span class="tilt-sheen" aria-hidden="true"></span>
-            </div>
-            <figcaption>Wavebead</figcaption>
-          </figure>
-          <figure class="hero-phone">
-            <div class="phone tilt-card">
-              <picture>
-                <source srcset="assets/hero/jpbound-home.webp" type="image/webp">
-                <img src="assets/hero/jpbound-home.png" width="720" height="1280" alt="JP Bound Clinic Finder home screen showing a clinic list for Japan, with open and closed hours and shortcuts to the map, favorites, and info." fetchpriority="high">
-              </picture>
-              <span class="tilt-sheen" aria-hidden="true"></span>
-            </div>
-            <figcaption>JP Bound Clinic Finder</figcaption>
-          </figure>
-        </div>
+        <figure class="phone phone-demo tilt-card">
+          <video class="demo-clip" autoplay muted loop playsinline poster="assets/hero/wavebead-poster.jpg" width="390" height="844">
+            <source src="assets/hero/wavebead-demo.webm" type="video/webm">
+            <source src="assets/hero/wavebead-demo.mp4" type="video/mp4">
+          </video>
+          <img class="demo-poster" src="assets/hero/wavebead-poster.jpg" width="390" height="844" alt="Wavebead home screen showing an estimated level chart, upcoming dose, and shortcuts to log a shot, how you feel, weight, and workouts.">
+          <span class="tilt-sheen" aria-hidden="true"></span>
+        </figure>
       </div>
     </section>
 
@@ -175,7 +161,7 @@
           <figure class="phone">
             <picture>
               <source srcset="assets/hero/jpbound-home.webp" type="image/webp">
-              <img src="assets/hero/jpbound-home.png" width="720" height="1280" alt="JP Bound Clinic Finder home screen showing a clinic list for Japan, with open and closed hours and shortcuts to the map, favorites, and info." loading="lazy" decoding="async">
+              <img src="assets/hero/jpbound-home.png" width="824" height="1688" alt="JP Bound Clinic Finder home screen showing a clinic list for Japan, with open and closed hours and shortcuts to the map, favorites, and info." loading="lazy" decoding="async">
             </picture>
           </figure>
         </div>
