@@ -1,0 +1,11 @@
+# Lone Frame Apps — all pages may be crawled.
+User-agent: Yeti
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: *
+Allow: /
+
+Sitemap: https://loneframeapps.github.io/sitemap.xml
