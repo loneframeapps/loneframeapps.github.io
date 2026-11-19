@@ -336,3 +336,61 @@ fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
 :lang(ja) h1, :lang(ja) h2, :lang(ja) h3 { word-break: auto-phrase; }
 :lang(ja) .finder h1 { font-size: clamp(1.375rem, 1.2rem + .9vw, 1.75rem); }
 :lang(en) .finder h1 { font-size: clamp(1.5rem, 1.3rem + .8vw, 1.875rem); }
+
+/* Batch 5 — desktop only (≥1000px): wider left column (~39/61), tighter list rows.
+   Phones keep the original layout. */
+@media (min-width: 1000px) {
+  /* 1280px → 384px left, 1440px → 420px left (≈39/61); the list keeps the page's right edge. */
+  .finder-grid { grid-template-columns: clamp(340px, 30vw, 420px) minmax(0, 1fr); gap: var(--s7); }
+  .finder h1 { font-size: 1.875rem; }
+  .h1a { display: block; }
+  /* Heading uses the full column; the mascot stands on the search bar beside the short intro. */
+  .head { display: block; position: relative; }
+  .head > div { padding-bottom: var(--s4); }
+  .head .intro { padding-right: 112px; }
+  .mascot { position: absolute; right: 0; bottom: -6px; margin: 0; }
+  /* Tighter row rhythm: 12px above the name, 12px below the check line. */
+  .row summary { padding-top: var(--s3); column-gap: var(--s5); }
+  .r-src { padding-bottom: var(--s3); }
+  .row { contain-intrinsic-size: auto 96px; }
+}
+/* Batch 5b — desktop only: five filter chips as a tidy 3 + 2 grid, less space above the map. */
+@media (min-width: 1000px) {
+  .finder { padding-top: var(--s5); }
+  .chips { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: var(--s2); }
+  .chips label { grid-column: span 2; justify-content: center; padding: 0 var(--s3); font-size: .875rem; white-space: nowrap; }
+  .chips label:nth-of-type(n + 4) { grid-column: span 3; }
+  .map-box { margin-top: var(--s4); }
+}
+/* Batch 5c — three control types read differently (desktop and mobile):
+   pick-one switches = solid track + dark active segment; filter tags = outlined on/off toggles. */
+:root { --track: #E3E9E7; --tag-line: #C9D1CE; }
+.controls { gap: var(--s4); }
+.seg { display: flex; padding: 4px; background: var(--track); border-radius: 999px; }
+.seg label { flex: 1 1 auto; justify-content: center; color: var(--ink); }
+.seg input:checked + label { background: var(--ink); color: #fff; }
+.seg-field:not(.ctl-row .seg-field) .seg label { flex: 1 1 0; }
+.chips label {
+  background: transparent; border: 1px solid var(--tag-line); color: var(--ink);
+  --pad: var(--s3); padding: 0 var(--pad); gap: var(--s1); font-size: .9375rem; font-weight: 600;
+  transition: background-color 150ms, border-color 150ms, color 150ms, scale 130ms var(--press);
+}
+.chips input:checked + label { background: var(--mint); border-color: var(--mint); color: #fff; padding-left: calc(var(--pad) - 4px); }
+.chips input:checked + label::before {
+  content: ""; width: 12px; height: 12px; flex: none; background: currentColor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'%3E%3Cpath d='M2.5 7.5l3 3 6-7' fill='none' stroke='%23000' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+@media (hover: hover) {
+  .chips input:not(:checked) + label:hover { border-color: var(--muted); }
+}
+@media (min-width: 1000px) {
+  .chips { display: flex; flex-wrap: wrap; justify-content: flex-start; gap: var(--s2); }
+  .chips label, .chips label:nth-of-type(n + 4) { grid-column: auto; justify-content: flex-start; font-size: .9375rem; }
+  .chips input:not(:checked) + label { padding: 0 var(--pad); }
+  .map-box { margin-top: var(--s5); }
+}
+/* Tag sizing per script so the five tags wrap 3 + 2 at 1280–1440 instead of leaving one alone. */
+@media (min-width: 1000px) {
+  :lang(ko) .chips label { --pad: var(--s4); font-size: 1rem; }
+  :lang(en) .chips label { font-size: .875rem; }
+}
