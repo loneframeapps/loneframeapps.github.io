@@ -269,3 +269,70 @@ fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
 /* Expand cue: one small "+" per row, turns into "×" when open (same cue as the FAQ). */
 .row summary::after { content: "+"; grid-column: 2; grid-row: 3; justify-self: end; align-self: center; font-size: 1.375rem; line-height: 1; color: var(--mint); transition: rotate 200ms; }
 .row details[open] summary::after { rotate: 45deg; }
+
+/* Language switch: three plain links with small flags, current one filled. Not a dropdown. */
+.top-bar .brand { margin-right: auto; }
+.langs { display: flex; gap: var(--s1); }
+.langs a {
+  display: inline-flex; align-items: center; gap: 6px; min-height: 40px; padding: 0 var(--s3); border-radius: 999px;
+  color: var(--ink); text-decoration: none; font-size: .9375rem; font-weight: 600; transition: background-color 150ms;
+}
+.langs a:hover { background: var(--tint); }
+.langs a[aria-current="page"] { background: var(--tint-2); font-weight: 800; }
+.langs svg { flex: none; border-radius: 2px; }
+/* Phones: the language row sits above the brand row and scrolls away; the brand row stays pinned. */
+@media (max-width: 719px) {
+  .top { top: -45px; }
+  .top-bar { flex-wrap: wrap; row-gap: 0; }
+  .langs { order: -1; width: 100%; height: 45px; align-items: center; border-bottom: 1px solid var(--line); margin-inline: calc(-1 * var(--s5)); padding-inline: var(--s4); width: calc(100% + 2 * var(--s5)); }
+  .langs a { min-height: 36px; font-size: .875rem; padding: 0 var(--s3); }
+  html { scroll-padding-top: 72px; }
+}
+
+/* Map: our own SVG outline with region pins. Folded under "map" on phones, open in the side column on desktop. */
+.map-box { margin-top: var(--s4); }
+.map-box > summary {
+  list-style: none; cursor: pointer; min-height: var(--tap); display: flex; align-items: center; gap: var(--s2);
+  padding: 0 var(--s4); border-radius: var(--r-s); background: var(--tint); font-weight: 700;
+}
+.map-box > summary::-webkit-details-marker { display: none; }
+.map-box > summary::after { content: "+"; margin-left: auto; font-size: 1.375rem; line-height: 1; color: var(--mint); transition: rotate 200ms; }
+.map-box[open] > summary::after { rotate: 45deg; }
+.jp-map { position: relative; margin-top: var(--s3); max-width: 360px; margin-inline: auto; }
+.jp-map svg { display: block; width: 100%; height: auto; }
+.jp-map .land { fill: var(--tint-2); }
+.jp-map .inset { fill: none; stroke: var(--line); stroke-width: 1; }
+.jp-map .lead path { stroke: var(--mint); stroke-width: 1.25; }
+.jp-map .lead circle { fill: var(--mint); }
+.pin {
+  position: absolute; translate: -50% -50%; min-height: 36px; padding: 0 var(--s3); border: 0; border-radius: 999px;
+  display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; cursor: pointer;
+  background: var(--paper); color: var(--ink); font: inherit; font-size: .875rem; font-weight: 600;
+  box-shadow: 0 1px 2px rgb(21 32 28 / .14), 0 0 0 1px var(--line);
+  transition: background-color 150ms, color 150ms, scale 130ms var(--press);
+}
+.pin::before { content: ""; position: absolute; inset: -4px; }   /* 44px tap area */
+.pin b { font-weight: 800; color: var(--mint-ink); font-variant-numeric: tabular-nums; }
+.pin:active { scale: .95; }
+.pin[aria-pressed="true"] { background: var(--mint); color: #fff; box-shadow: none; }
+.pin[aria-pressed="true"] b { color: #fff; }
+.pin:disabled { opacity: .45; cursor: default; }
+.pin-flat { position: relative; translate: none; background: var(--tint); box-shadow: none; min-height: 40px; }
+.map-actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s2); margin-top: var(--s2); }
+.map-reset {
+  min-height: 40px; padding: 0 var(--s3); border: 0; background: none; font: inherit; font-size: .9375rem; font-weight: 700;
+  color: var(--mint-ink); text-decoration: underline; text-underline-offset: 4px; cursor: pointer;
+}
+@media (min-width: 1000px) {
+  .map-box > summary { display: none; }
+  .map-box { margin-top: var(--s5); }
+  .jp-map { margin-top: 0; max-width: none; }
+  .finder-side { max-height: calc(100dvh - 100px); overflow-y: auto; scrollbar-width: thin; padding: 4px; margin: -4px; }
+}
+.no-js .map-box { display: none; }
+.nw { white-space: nowrap; }
+.count, .share, .sort select { white-space: nowrap; }
+:lang(ja) body { word-break: normal; line-break: strict; }
+:lang(ja) h1, :lang(ja) h2, :lang(ja) h3 { word-break: auto-phrase; }
+:lang(ja) .finder h1 { font-size: clamp(1.375rem, 1.2rem + .9vw, 1.75rem); }
+:lang(en) .finder h1 { font-size: clamp(1.5rem, 1.3rem + .8vw, 1.875rem); }
