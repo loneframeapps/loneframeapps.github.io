@@ -57,7 +57,7 @@ a { color: var(--mint-ink); }
 }
 .btn:hover { background: var(--mint-ink); }
 .btn:active { scale: .96; }
-.btn-small { min-height: 40px; padding: 0 var(--s4); font-size: .9375rem; }
+.btn-small { min-height: 40px; padding: 0 var(--s4); font-size: .9375rem; white-space: nowrap; flex: none; }
 .play { display: inline-block; border-radius: 10px; transition: scale 130ms var(--press); }
 .play:active { scale: .96; }
 .play img { width: 184px; }
@@ -66,8 +66,9 @@ a { color: var(--mint-ink); }
 /* Header */
 .top { position: sticky; top: 0; z-index: 5; background: var(--paper); border-bottom: 1px solid var(--line); }
 .top-bar { display: flex; align-items: center; justify-content: space-between; gap: var(--s4); min-height: 60px; }
-.brand { display: flex; align-items: center; gap: var(--s3); color: var(--ink); text-decoration: none; font-weight: 800; font-size: 1rem; letter-spacing: -0.01em; }
-.brand img { border-radius: 9px; }
+.brand { display: flex; align-items: center; gap: var(--s3); color: var(--ink); text-decoration: none; font-weight: 800; font-size: 1rem; letter-spacing: -0.01em; min-width: 0; }
+.brand img { border-radius: 9px; flex: none; }
+.brand span { min-width: 0; }
 
 /* Sections */
 .section { padding-block: var(--s9) var(--s8); }
@@ -313,6 +314,9 @@ fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
   .top-bar { flex-wrap: wrap; row-gap: 0; }
   .langs { order: -1; width: 100%; height: 45px; align-items: center; border-bottom: 1px solid var(--line); margin-inline: calc(-1 * var(--s5)); padding-inline: var(--s4); width: calc(100% + 2 * var(--s5)); }
   .langs a { min-height: 36px; font-size: .875rem; padding: 0 var(--s3); }
+  /* Brand + button share one row: basis 0 so wrap doesn't park the button on a new line first. */
+  .top-bar .brand { flex: 1 1 0%; min-width: 0; }
+  .brand span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   html { scroll-padding-top: 72px; }
 }
 
