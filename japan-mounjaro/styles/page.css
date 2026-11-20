@@ -1,18 +1,19 @@
-/* JP Bound Clinic Finder — Korean landing page.
-   Tokens follow the app (app/www/css/styles.css): white field, mint primary, peach accent.
+/* JP Bound Clinic Finder — Korean / English / Japanese price pages.
+   Tokens follow app 0.5.0: white field, brand blue #2B6BE6, soft surface #E0ECFF.
    Spacing scale 4/8/12/16/24/32/48/64/96. Type scale 14/16/18/22/28/36/52. */
 
 :root {
   --paper: #ffffff;
   --ink: #15201C;
   --muted: #4E5C58;
-  --tint: #EEF6F3;
-  --tint-2: #DCEFE8;
-  --line: #D7E8E2;
-  --mint: #0E7A5F;
-  --mint-ink: #0A5C47;
-  --peach: #C0603F;
-  --peach-bg: #FDE8DC;
+  --tint: #F3F7FF;
+  --tint-2: #E0ECFF;
+  --line: #D3DDEA;
+  --mint: #2B6BE6;
+  --mint-ink: #1851C7;
+  --peach: #3A4A62;
+  --peach-bg: #E0ECFF;
+  --warn: #9A3B1A;
   --good-bg: #E3F6E6;
   --good: #187A2C;
 
@@ -72,6 +73,12 @@ a { color: var(--mint-ink); }
 .section { padding-block: var(--s9) var(--s8); }
 .section-tint { background: var(--tint); }
 .section h2 { font-size: clamp(1.5rem, 1.2rem + 1.4vw, 2.25rem); font-weight: 800; }
+.section-head { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: end; column-gap: var(--s3); }
+.pose-card {
+  background: var(--tint-2); border-radius: var(--r);
+  padding: 8px 10px 0; display: inline-grid; width: max-content; place-items: end center;
+}
+.pose-card img { width: auto; height: 72px; max-width: none; }
 .section-lede { margin-top: var(--s3); color: var(--muted); max-width: 40em; font-size: 1.0625rem; }
 
 /* How-to */
@@ -94,8 +101,8 @@ a { color: var(--mint-ink); }
 .tips { display: grid; gap: var(--s5); align-content: start; }
 .tips h3 { font-size: 1.125rem; font-weight: 800; }
 .tips p { margin-top: var(--s1); color: var(--muted); }
-.soon { padding: var(--s4); border-radius: var(--r); background: var(--peach-bg); color: #5E2E1F; }
-.soon strong { display: inline-block; margin-right: var(--s2); padding: 0 10px; border-radius: 999px; background: var(--peach); color: #fff; font-size: .875rem; }
+.soon { padding: var(--s4); border-radius: var(--r); background: var(--tint-2); color: var(--ink); }
+.soon strong { display: inline-block; margin-right: var(--s2); padding: 0 10px; border-radius: 999px; background: var(--mint); color: #fff; font-size: .875rem; }
 
 /* FAQ — native details, exclusive via name */
 .faq { margin-top: var(--s5); border-top: 1px solid var(--line); }
@@ -136,10 +143,26 @@ a { color: var(--mint-ink); }
 .finder { padding-block: var(--s5) var(--s8); }
 .finder h1 { font-size: clamp(1.5rem, 1.25rem + 1.2vw, 2rem); font-weight: 800; }
 .intro { margin-top: var(--s1); color: var(--muted); font-size: .9375rem; }
-/* Mascot stands on the search bar: feet (its own ground shadow) sit on the bar's top edge */
-.head { display: grid; grid-template-columns: 1fr auto; align-items: end; column-gap: var(--s3); }
-.head > div { padding-bottom: var(--s4); }
-.mascot { width: auto; height: 84px; margin-right: 40px; margin-bottom: -6px; position: relative; z-index: 1; pointer-events: none; }
+/* Running cat sits on a solid #E0ECFF card beside the title, not free-floating. */
+.head { display: grid; grid-template-columns: 1fr auto; align-items: end; column-gap: var(--s3); margin-bottom: var(--s4); }
+.head > div { padding-bottom: var(--s4); min-width: 0; }
+.mascot-card {
+  background: var(--tint-2); border-radius: var(--r);
+  padding: 8px 10px 0; display: inline-grid; place-items: end center;
+  width: max-content; pointer-events: none;
+}
+.mascot-card .mascot { width: auto; height: 84px; max-width: none; margin: 0; }
+.highlight {
+  margin: 0 0 var(--s4); padding: var(--s4);
+  background: var(--tint-2); border-radius: var(--r);
+  font-size: .9375rem; line-height: 1.6; color: var(--ink);
+}
+.sushi-row {
+  display: flex; align-items: flex-end; justify-content: space-around;
+  gap: var(--s2); list-style: none; margin: 0 0 var(--s5); padding: var(--s2) var(--s4);
+  background: var(--tint-2); border-radius: var(--r);
+}
+.sushi-row img { width: auto; height: 36px; max-width: none; }
 .controls { margin-top: 0; display: grid; gap: var(--s3); }
 .no-js .controls, .no-js .result-bar .sort, .no-js .share, .no-js .rate { display: none; }
 
@@ -183,8 +206,12 @@ fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
 .chips input:checked + label::before { content: "✓"; font-weight: 800; }
 
 /* Result bar */
-.result-bar { display: flex; align-items: center; gap: var(--s2); margin-top: var(--s5); }
-.count { font-size: 1.25rem; font-weight: 800; margin-right: auto; font-variant-numeric: tabular-nums; }
+.result-bar { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s2); margin-top: var(--s5); }
+.count { font-size: 1.25rem; font-weight: 800; font-variant-numeric: tabular-nums; }
+.list-cheer { width: 56px; height: auto; max-width: none; margin: -4px 0 0; margin-right: auto; }
+@media (max-width: 499px) {
+  .list-cheer { width: 40px; margin: 0; margin-right: auto; }
+}
 .sort select { min-height: 40px; font-size: .9375rem; padding-left: var(--s3); }
 .share {
   min-height: 40px; padding: 0 var(--s4); border: 0; border-radius: var(--r-s); background: var(--tint);
@@ -210,7 +237,7 @@ fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
 .r-yen { font-size: 1.25rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1.35; font-variant-numeric: tabular-nums; }
 .r-won { font-size: .8125rem; color: var(--muted); white-space: nowrap; }
 .r-meta { font-size: .875rem; color: var(--muted); grid-column: 1; grid-row: 3; }
-.r-fee.is-unknown { color: var(--peach); font-weight: 600; }
+.r-fee.is-unknown { color: var(--warn); font-weight: 600; }
 .r-tags { grid-column: 1 / -1; grid-row: 4; list-style: none; margin: var(--s1) 0 0; padding: 0; display: flex; gap: 6px; }
 .r-tags li { font-size: .8125rem; font-weight: 600; padding: 1px 10px; border-radius: 999px; background: var(--good-bg); color: var(--good); }
 .r-src { font-size: .8125rem; color: var(--muted); padding-bottom: var(--s4); margin-top: var(--s1); }
@@ -295,6 +322,7 @@ fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
   list-style: none; cursor: pointer; min-height: var(--tap); display: flex; align-items: center; gap: var(--s2);
   padding: 0 var(--s4); border-radius: var(--r-s); background: var(--tint); font-weight: 700;
 }
+.pose-map { width: auto; height: 36px; max-width: none; flex: none; }
 .map-box > summary::-webkit-details-marker { display: none; }
 .map-box > summary::after { content: "+"; margin-left: auto; font-size: 1.375rem; line-height: 1; color: var(--mint); transition: rotate 200ms; }
 .map-box[open] > summary::after { rotate: 45deg; }
@@ -324,7 +352,12 @@ fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
   color: var(--mint-ink); text-decoration: underline; text-underline-offset: 4px; cursor: pointer;
 }
 @media (min-width: 1000px) {
-  .map-box > summary { display: none; }
+  .map-box > summary {
+    display: flex; pointer-events: none; cursor: default;
+    background: transparent; padding: 0; min-height: 0; margin-bottom: var(--s3);
+  }
+  .map-box > summary::after { content: none; }
+  .pose-map { height: 44px; }
   .map-box { margin-top: var(--s5); }
   .jp-map { margin-top: 0; max-width: none; }
   .finder-side { max-height: calc(100dvh - 100px); overflow-y: auto; scrollbar-width: thin; padding: 4px; margin: -4px; }
@@ -333,6 +366,10 @@ fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
 .nw { white-space: nowrap; }
 .count, .share, .sort select { white-space: nowrap; }
 :lang(ja) body { word-break: normal; line-break: strict; }
+:lang(ja) {
+  --font: "Pretendard Variable", Pretendard, "Hiragino Sans", "Hiragino Kaku Gothic ProN",
+          "Noto Sans JP", "Yu Gothic", YuGothic, Meiryo, system-ui, sans-serif;
+}
 :lang(ja) h1, :lang(ja) h2, :lang(ja) h3 { word-break: auto-phrase; }
 :lang(ja) .finder h1 { font-size: clamp(1.375rem, 1.2rem + .9vw, 1.75rem); }
 :lang(en) .finder h1 { font-size: clamp(1.5rem, 1.3rem + .8vw, 1.875rem); }
@@ -344,11 +381,10 @@ fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
   .finder-grid { grid-template-columns: clamp(340px, 30vw, 420px) minmax(0, 1fr); gap: var(--s7); }
   .finder h1 { font-size: 1.875rem; }
   .h1a { display: block; }
-  /* Heading uses the full column; the mascot stands on the search bar beside the short intro. */
-  .head { display: block; position: relative; }
-  .head > div { padding-bottom: var(--s4); }
-  .head .intro { padding-right: 112px; }
-  .mascot { position: absolute; right: 0; bottom: -6px; margin: 0; }
+  /* Keep the title + intro in a column next to a shrink-wrapped mascot card (no overlap). */
+  .head { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: start; }
+  .head > div { padding-bottom: var(--s4); padding-right: 0; }
+  .mascot-card { position: static; margin: 0; }
   /* Tighter row rhythm: 12px above the name, 12px below the check line. */
   .row summary { padding-top: var(--s3); column-gap: var(--s5); }
   .r-src { padding-bottom: var(--s3); }
@@ -364,7 +400,7 @@ fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
 }
 /* Batch 5c — three control types read differently (desktop and mobile):
    pick-one switches = solid track + dark active segment; filter tags = outlined on/off toggles. */
-:root { --track: #E3E9E7; --tag-line: #C9D1CE; }
+:root { --track: #E3E7EE; --tag-line: #C9D0DA; }
 .controls { gap: var(--s4); }
 .seg { display: flex; padding: 4px; background: var(--track); border-radius: 999px; }
 .seg label { flex: 1 1 auto; justify-content: center; color: var(--ink); }
